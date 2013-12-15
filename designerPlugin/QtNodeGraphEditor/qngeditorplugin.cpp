@@ -3,13 +3,13 @@
 
 #include <QtPlugin>
 
-qngEditorPlugin::qngEditorPlugin(QObject *parent)
+QngEditorPlugin::QngEditorPlugin(QObject *parent)
     : QObject(parent)
 {
     m_initialized = false;
 }
 
-void qngEditorPlugin::initialize(QDesignerFormEditorInterface * /* core */)
+void QngEditorPlugin::initialize(QDesignerFormEditorInterface * /* core */)
 {
     if (m_initialized)
         return;
@@ -19,54 +19,72 @@ void qngEditorPlugin::initialize(QDesignerFormEditorInterface * /* core */)
     m_initialized = true;
 }
 
-bool qngEditorPlugin::isInitialized() const
+bool QngEditorPlugin::isInitialized() const
 {
     return m_initialized;
 }
 
-QWidget *qngEditorPlugin::createWidget(QWidget *parent)
+QWidget *QngEditorPlugin::createWidget(QWidget *parent)
 {
-    return new qngEditor(parent);
+    return new QngEditor(parent);
 }
 
-QString qngEditorPlugin::name() const
+QString QngEditorPlugin::name() const
 {
-    return QLatin1String("qngEditor");
+    return QLatin1String("Qt Node Graph Editor");
 }
 
-QString qngEditorPlugin::group() const
+QString QngEditorPlugin::group() const
 {
     return QLatin1String("");
 }
 
-QIcon qngEditorPlugin::icon() const
+QIcon QngEditorPlugin::icon() const
 {
     return QIcon();
 }
 
-QString qngEditorPlugin::toolTip() const
+QString QngEditorPlugin::toolTip() const
 {
     return QLatin1String("");
 }
 
-QString qngEditorPlugin::whatsThis() const
+QString QngEditorPlugin::whatsThis() const
 {
     return QLatin1String("");
 }
 
-bool qngEditorPlugin::isContainer() const
+bool QngEditorPlugin::isContainer() const
 {
     return false;
 }
 
-QString qngEditorPlugin::domXml() const
+QString QngEditorPlugin::domXml() const
 {
-    return QLatin1String("<widget class=\"qngEditor\" name=\"qngEditor\">\n</widget>\n");
+    //return QLatin1String("<widget class=\"qngEditor\" name=\"qngEditor\">\n</widget>\n");
+    return "<ui language=\"c++\">\n"
+           " <widget class=\"NodeGraphEditor\" name=\"nodeGraphEditor\">\n"
+           "  <property name=\"geometry\">\n"
+           "   <rect>\n"
+           "    <x>0</x>\n"
+           "    <y>0</y>\n"
+           "    <width>100</width>\n"
+           "    <height>100</height>\n"
+           "   </rect>\n"
+           "  </property>\n"
+           "  <property name=\"toolTip\" >\n"
+           "   <string>The current time</string>\n"
+           "  </property>\n"
+           "  <property name=\"whatsThis\" >\n"
+           "   <string>TODO: Add a whatsThis description</string>\n"
+           "  </property>\n"
+           " </widget>\n"
+           "</ui>\n";
 }
 
-QString qngEditorPlugin::includeFile() const
+QString QngEditorPlugin::includeFile() const
 {
     return QLatin1String("qngeditor.h");
 }
 
-Q_EXPORT_PLUGIN2(qngeditorplugin, qngEditorPlugin)
+Q_EXPORT_PLUGIN2(qngeditorplugin, QngEditorPlugin)

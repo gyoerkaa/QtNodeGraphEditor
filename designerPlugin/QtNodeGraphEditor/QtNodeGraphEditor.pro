@@ -1,11 +1,10 @@
-CONFIG      += designer plugin debug_and_release
+CONFIG      += designer plugin
+CONFIG      += debug_and_release
 TARGET      = $$qtLibraryTarget(qngeditorplugin)
 TEMPLATE    = lib
 
-HEADERS     = qngeditorplugin.h \
-    qnggraph.h
-SOURCES     = qngeditorplugin.cpp \
-    qnggraph.cpp
+HEADERS     = qngeditorplugin.h
+SOURCES     = qngeditorplugin.cpp
 RESOURCES   = icons.qrc
 LIBS        += -L. 
 

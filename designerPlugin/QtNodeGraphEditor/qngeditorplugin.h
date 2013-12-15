@@ -3,13 +3,13 @@
 
 #include <QDesignerCustomWidgetInterface>
 
-class qngEditorPlugin : public QObject, public QDesignerCustomWidgetInterface
+class QngEditorPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
     Q_INTERFACES(QDesignerCustomWidgetInterface)
     
 public:
-    qngEditorPlugin(QObject *parent = 0);
+    QngEditorPlugin(QObject *parent = 0);
     
     bool isContainer() const;
     bool isInitialized() const;

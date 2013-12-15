@@ -2,13 +2,17 @@
 #define QNGEDITOR_H
 
 #include <QWidget>
+#include <QtDesigner/QDesignerExportWidget>
 
-class qngEditor : public QWidget
+class QDESIGNER_WIDGET_EXPORT QngEditor : public QWidget
 {
     Q_OBJECT
     
 public:
-    qngEditor(QWidget *parent = 0);
+    QngEditor(QWidget *parent = 0);
+
+protected:
+    void paintEvent(QPaintEvent *event);
 };
 
 #endif
