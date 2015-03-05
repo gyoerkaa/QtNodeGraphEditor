@@ -1,6 +1,6 @@
-#include "qngeditor.h"
 #include "qngeditorplugin.h"
 
+#include "qngeditorwidget.h"
 #include <QtPlugin>
 
 QngEditorPlugin::QngEditorPlugin(QObject *parent)
@@ -26,7 +26,7 @@ bool QngEditorPlugin::isInitialized() const
 
 QWidget *QngEditorPlugin::createWidget(QWidget *parent)
 {
-    return new QngEditor(parent);
+    return new QngEditorWidget(parent);
 }
 
 QString QngEditorPlugin::name() const
@@ -84,7 +84,5 @@ QString QngEditorPlugin::domXml() const
 
 QString QngEditorPlugin::includeFile() const
 {
-    return QLatin1String("qngeditor.h");
+    return QLatin1String("qngeditorwidget.h");
 }
-
-Q_EXPORT_PLUGIN2(qngeditorplugin, QngEditorPlugin)

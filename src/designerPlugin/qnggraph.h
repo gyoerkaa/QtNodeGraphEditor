@@ -5,6 +5,7 @@ class QngGraph
 {
 public:
     QngGraph();
+
 };
 
 #endif // QNGGRAPH_H
