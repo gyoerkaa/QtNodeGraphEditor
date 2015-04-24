@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    qngnode.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    qngnode.h
 
 FORMS    += mainwindow.ui
